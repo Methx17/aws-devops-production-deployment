@@ -6,7 +6,7 @@ const PORT = 3000;
 
 app.get('/', (req, res) => {
     res.json({
-        message: "AWS DevOps Assignment",
+        message: "CI/CD Working Successfully 🚀",
         developer: "Methesh Shetty",
         status: "Running Successfully",
         timestamp: new Date()
