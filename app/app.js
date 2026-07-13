@@ -6,7 +6,7 @@ const PORT = 3000;
 
 app.get('/', (req, res) => {
     res.json({
-        message: "CI/CD Working Successfully 🚀",
+        message: "Automatic Deployment Verified - Build #2",
         developer: "Methesh Shetty",
         status: "Running Successfully",
         timestamp: new Date()
