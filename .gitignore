@@ -1,0 +1,22 @@
+# Node.js
+app/node_modules/
+app/npm-debug.log
+
+# Environment files
+.env
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# WinSCP temporary files
+*.ppk
+
+# Screenshots (optional)
+screenshots/*.png
