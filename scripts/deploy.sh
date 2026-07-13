@@ -1,23 +1,48 @@
 #!/bin/bash
 
-echo "==============================="
+set -e
+
+echo "======================================"
 echo "Starting Deployment"
-echo "==============================="
+echo "======================================"
 
-docker pull Methx18/node-api:latest
+IMAGE="methx18/node-api:latest"
+CONTAINER="node-api"
 
-docker stop node-api || true
+echo "Pulling latest image..."
+docker pull $IMAGE
 
-docker rm node-api || true
+if [ "$(docker ps -aq -f name=$CONTAINER)" ]; then
+    echo "Stopping existing container..."
+    docker stop $CONTAINER || true
+
+    echo "Removing existing container..."
+    docker rm $CONTAINER || true
+fi
+
+echo "Starting new container..."
 
 docker run -d \
-  --name node-api \
+  --name $CONTAINER \
   --restart unless-stopped \
   -p 3000:3000 \
-  Methx18/node-api:latest
+  $IMAGE
+
+echo "Waiting for application..."
+
+sleep 10
+
+if curl -f http://localhost:3000/health; then
+    echo ""
+    echo "Deployment Successful ✅"
+else
+    echo ""
+    echo "Deployment Failed ❌"
+    exit 1
+fi
 
 docker image prune -f
 
-echo "==============================="
+echo "======================================"
 echo "Deployment Completed"
-echo "==============================="
+echo "======================================"
