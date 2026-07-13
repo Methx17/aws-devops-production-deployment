@@ -17,6 +17,3 @@ Thumbs.db
 
 # WinSCP temporary files
 *.ppk
-
-# Screenshots (optional)
-screenshots/*.png
