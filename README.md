@@ -21,7 +21,7 @@ Whenever code is pushed to the **main** branch:
 
 # 🏗 Architecture
 
-> Add your architecture image below.
+
 ![alt text](architecture/43-architecture-diagram.png.png)
 
 
