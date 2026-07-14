@@ -1,65 +1,74 @@
-# AWS DevOps Production Deployment
+# 🚀 AWS DevOps Production Deployment Pipeline
 
-## Project Overview
+A production-style DevOps project demonstrating automated CI/CD deployment of a Dockerized Node.js application on AWS EC2 using GitHub Actions, Docker Hub, Amazon CloudWatch, Amazon S3, and Load Testing with k6.
 
-This project demonstrates a complete production-style DevOps deployment on AWS using Free Tier services.
+---
 
-The project includes:
+# 📌 Project Overview
 
-- AWS EC2
-- Docker
-- GitHub Actions CI/CD
-- Docker Hub
-- Amazon S3
-- CloudWatch Monitoring
+This project demonstrates an end-to-end DevOps workflow from source code management to automated deployment and monitoring.
+
+Whenever code is pushed to the **main** branch:
+
+- GitHub Actions automatically builds the Docker image
+- Pushes the image to Docker Hub
+- Connects to AWS EC2
+- Pulls the latest Docker image
+- Deploys the updated application
+- CloudWatch monitors infrastructure and application logs
+
+---
+
+# 🏗 Architecture
+
+> Add your architecture image below.
+
+```text
+architecture/architecture.png
+```
+
+After uploading the image, replace the line above with:
+
+```markdown
+![Architecture](architecture/architecture.png)
+```
+
+---
+
+# ✨ Features
+
+- Automated CI/CD using GitHub Actions
+- Dockerized Node.js API
+- Automatic deployment to AWS EC2
+- Docker Hub integration
+- Amazon S3 backup
+- Amazon CloudWatch Dashboard
+- CloudWatch Alarms
 - CloudWatch Logs
-- CloudWatch Dashboard
-- CloudWatch Alarm
 - Load Testing using k6
+- Security Best Practices
+- Complete Deployment Documentation
 
 ---
 
-## Architecture
+# 🛠 Technologies Used
 
-Architecture Diagram
-
-```
-Developer
-    │
-GitHub Repository
-    │
-GitHub Actions
-    │
-Docker Hub
-    │
-AWS EC2
-    │
-Docker Container
-    │
-Node.js API
-```
+| Category | Technologies |
+|-----------|-------------|
+| Cloud | AWS EC2, S3, IAM, CloudWatch |
+| Containerization | Docker |
+| CI/CD | GitHub Actions |
+| Source Control | Git & GitHub |
+| Language | Node.js |
+| Testing | k6 |
+| Monitoring | CloudWatch |
+| OS | Ubuntu Linux |
 
 ---
 
-## Technologies Used
+# 📂 Project Structure
 
-- AWS EC2
-- AWS IAM
-- AWS S3
-- AWS CloudWatch
-- Docker
-- GitHub
-- GitHub Actions
-- Docker Hub
-- Node.js
-- Ubuntu
-- k6
-
----
-
-## Project Structure
-
-```
+```text
 aws-devops-production-deployment/
 │
 ├── .github/
@@ -70,15 +79,16 @@ aws-devops-production-deployment/
 │   ├── app.js
 │   ├── Dockerfile
 │   ├── package.json
-│   └── package-lock.json
+│   ├── package-lock.json
+│   └── .dockerignore
 │
 ├── architecture/
 │
 ├── docs/
+│   ├── DEPLOYMENT.md
+│   └── SECURITY.md
 │
 ├── k6/
-│
-├── load-testing/
 │   └── load-test.js
 │
 ├── screenshots/
@@ -86,52 +96,60 @@ aws-devops-production-deployment/
 ├── scripts/
 │   └── deploy.sh
 │
-└── README.md
+├── README.md
+│
+└── .gitignore
 ```
 
 ---
 
-## Prerequisites
+# ⚙ CI/CD Workflow
 
-- AWS Account
-- EC2 Ubuntu Instance
-- Docker Installed
-- Git Installed
-- GitHub Account
-- Docker Hub Account
-- SSH Key Pair
+```
+Developer
+      │
+      ▼
+GitHub Repository
+      │
+      ▼
+GitHub Actions
+      │
+      ▼
+Build Docker Image
+      │
+      ▼
+Push to Docker Hub
+      │
+      ▼
+SSH into EC2
+      │
+      ▼
+Pull Latest Image
+      │
+      ▼
+Run Docker Container
+      │
+      ▼
+Application Live
+      │
+      ▼
+CloudWatch Monitoring
+```
 
 ---
 
-## Deployment Steps
+# 🚀 Deployment Steps
 
-### Clone Repository
+## Clone Repository
 
 ```bash
 git clone https://github.com/Methx17/aws-devops-production-deployment.git
+cd aws-devops-production-deployment
 ```
 
----
+## Configure GitHub Secrets
 
-### Build Docker Image
-
-```bash
-docker build -t node-api ./app
-```
-
----
-
-### Run Container
-
-```bash
-docker run -d -p 80:3000 node-api
-```
-
----
-
-### Configure GitHub Actions
-
-Add the following GitHub Secrets:
+Configure:
 
 - DOCKER_USERNAME
 - DOCKER_PASSWORD
@@ -139,63 +157,106 @@ Add the following GitHub Secrets:
 - EC2_USERNAME
 - EC2_SSH_KEY
 
----
-
-### Push Code
+## Push Code
 
 ```bash
 git add .
-git commit -m "Update"
+git commit -m "Deploy application"
 git push origin main
 ```
 
-GitHub Actions automatically:
-
-- Builds Docker Image
-- Pushes Image to Docker Hub
-- Connects to EC2
-- Pulls Latest Image
-- Restarts Container
+GitHub Actions automatically deploys the latest version to AWS EC2.
 
 ---
 
-## Monitoring
+# 📊 Monitoring
 
-CloudWatch is configured for:
+This project uses Amazon CloudWatch for:
 
-- CPU
-- Memory
-- Disk Usage
-- Application Logs
-- Dashboard
-- Alarm
-
----
-
-## Load Testing
-
-k6 is used to test the application.
-
-Run:
-
-```bash
-k6 run load-testing/load-test.js
-```
+- CPU Utilization
+- Memory Utilization
+- Disk Utilization
+- CloudWatch Dashboard
+- CloudWatch Alarms
+- Centralized Application Logs
 
 ---
 
-## Security
+# 📈 Load Testing
 
-- IAM Least Privilege
+Load testing is performed using **k6**.
+
+Metrics monitored include:
+
+- Response Time
+- Throughput
+- Error Rate
+- CPU Usage
+- Memory Usage
+
+---
+
+# 🔐 Security
+
+Implemented security best practices:
+
+- IAM Role with least privilege
+- SSH Key Authentication
+- GitHub Secrets
 - Security Groups
-- SSH Authentication
-- Docker Container Isolation
+- Docker Image Isolation
 - CloudWatch Monitoring
 
 ---
 
-## Author
+# 📸 Screenshots
 
-Methesh Shetty
+The project includes screenshots for:
 
-DevOps Engineer
+- AWS EC2
+- GitHub Actions
+- Docker Hub
+- CloudWatch Dashboard
+- CloudWatch Logs
+- Load Testing
+- CI/CD Pipeline
+
+All screenshots are available in the **screenshots/** folder.
+
+---
+
+# 📄 Documentation
+
+Additional documentation:
+
+- docs/DEPLOYMENT.md
+- docs/SECURITY.md
+
+---
+
+# 🚧 Future Improvements
+
+- HTTPS using Nginx & Let's Encrypt
+- Terraform Infrastructure as Code
+- Kubernetes Deployment
+- Jenkins Pipeline
+- Prometheus Monitoring
+- Grafana Dashboards
+
+---
+
+# 👨‍💻 Author
+
+**Methesh Shetty**
+
+GitHub:
+https://github.com/Methx17
+
+LinkedIn:
+(Add your LinkedIn profile here)
+
+---
+
+# ⭐ If you found this project useful
+
+Please consider giving this repository a ⭐ on GitHub.
