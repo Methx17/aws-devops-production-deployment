@@ -22,18 +22,8 @@ Whenever code is pushed to the **main** branch:
 # 🏗 Architecture
 
 > Add your architecture image below.
+![alt text](architecture/43-architecture-diagram.png.png)
 
-```text
-architecture/architecture.png
-```
-
-After uploading the image, replace the line above with:
-
-```markdown
-![Architecture](architecture/architecture.png)
-```
-
----
 
 # ✨ Features
 
