@@ -253,7 +253,7 @@ GitHub:
 https://github.com/Methx17
 
 LinkedIn:
-(Add your LinkedIn profile here)
+https://www.linkedin.com/in/methesh-shetty
 
 ---
 
